@@ -1,0 +1,22 @@
+app:
+  title: Backstage App
+  baseUrl: http://localhost:7007
+
+organization:
+  name: My Company
+
+backend:
+  baseUrl: http://localhost:7007
+  listen:
+    port: 7007
+  cors:
+    origin: http://localhost:7007
+    methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
+    credentials: true
+
+catalog:
+  rules:
+    - allow: [Component, System, API, Resource, Location]
+
+auth:
+  providers: {}

@@ -1,22 +1,13 @@
 # Dockerfile for Backstage
 
-# Use the official Node.js image as a base
-FROM node:14
+# Use the official Backstage image as a base
+FROM ghcr.io/backstage/backstage:latest
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and yarn.lock
-COPY package.json yarn.lock .
-
-# Install dependencies
-RUN yarn install --frozen-lockfile
-
-# Copy the rest of the application
-COPY . .
-
-# Build the Backstage application
-RUN yarn build
+# Copy custom configuration if needed
+COPY app-config.yaml ./
 
 # Expose the application port
 EXPOSE 7007
